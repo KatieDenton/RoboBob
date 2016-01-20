@@ -23,6 +23,8 @@
 // Button 6D:      Slow Down Launcher
 // Button 8U:      Max Launcher Speed
 // Button 8D:      Min Launcher Speed
+// Button 8L:      Launcher Off
+// Button 8R:      Medium Launcher Speed
 
 
 #pragma platform(VEX)
