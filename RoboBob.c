@@ -40,7 +40,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////
 
-int launcherSpeed = 100; // Set speed of Launcher
+int launcherSpeed = 0; // Set speed of Launcher
 
 void pre_auton()
 {
@@ -63,6 +63,8 @@ void pre_auton()
 
 task autonomous()
 {
+	launcherSpeed = 100;
+
 	//Start the launcher, wait for it to speed up
 	motor[port2] = launcherSpeed;
 	motor[port3] = launcherSpeed;
@@ -81,6 +83,7 @@ task autonomous()
 
 task usercontrol()
 {
+	launcherSpeed = 0;
 	while (true)
 	{
 		// Joystic Control:
@@ -117,6 +120,10 @@ task usercontrol()
 			launcherSpeed = 127;
 		else if (vexRT[Btn8D] == 1)  // MIN Speed
 			launcherSpeed = 80;
+		else if (vexRT[Btn8L] == 1)  // OFF
+			launcherSpeed = 0;
+		else if (vexRT[Btn8R] == 1)  // MED Speed
+			launcherSpeed = 100;
 
 		// Keep Launcher Running:
 		motor[port2] = launcherSpeed;
