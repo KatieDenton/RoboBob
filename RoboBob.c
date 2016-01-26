@@ -2,8 +2,8 @@
 #pragma config(Sensor, I2C_1,  ,               sensorQuadEncoderOnI2CPort,    , AutoAssign )
 #pragma config(Sensor, I2C_2,  ,               sensorQuadEncoderOnI2CPort,    , AutoAssign )
 #pragma config(Motor,  port1,           LDrive,        tmotorVex393_HBridge, openLoop, reversed)
-#pragma config(Motor,  port2,           LLauncher,  tmotorVex393HighSpeed_MC29, PIDControl, reversed, encoderPort, I2C_1)
-#pragma config(Motor,  port3,           RLauncher, tmotorVex393HighSpeed_MC29, PIDControl, encoderPort, I2C_2)
+#pragma config(Motor,  port2,           LLauncher,     tmotorVex393TurboSpeed_MC29, PIDControl, reversed, encoderPort, I2C_1)
+#pragma config(Motor,  port3,           RLauncher,     tmotorVex393TurboSpeed_MC29, PIDControl, encoderPort, I2C_2)
 #pragma config(Motor,  port4,           Lift,          tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port5,           Intake,        tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port6,           LiftFeeder,    tmotorVex393_MC29, openLoop)
@@ -86,7 +86,7 @@ task autonomous()
 
 task usercontrol()
 {
-	launcherSpeed = 0;
+	launcherSpeed = 100;
 	while (true)
 	{
 		// Joystic Control:
