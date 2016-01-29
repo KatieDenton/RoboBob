@@ -48,7 +48,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 
 int launcherSpeed = 0;   // Set speed of Launcher
-int defaultLSpeed = 112; // Value that scores from the corner
+int defaultLSpeed = 127; // Value that scores from the corner
 int liftSpeed = 50;
 
 void pre_auton()
@@ -86,7 +86,7 @@ task autonomous()
 
 task usercontrol()
 {
-	launcherSpeed = 100;
+	launcherSpeed = 127;
 	while (true)
 	{
 		// Joystic Control:
@@ -131,18 +131,12 @@ task usercontrol()
 			launcherSpeed = 100;
 		else if (vexRT[Btn8L] == 1)  // OFF
 			launcherSpeed = 0;
-		else if (vexRT[Btn8R] == 1)  // DEFAULT Speed
-			launcherSpeed = defaultLSpeed;
+		else if (vexRT[Btn8R] == 1)  // MEDIUM Speed
+			launcherSpeed = 112;
 
 
-		if (vexRT[Btn7U] == 1)       // Test Value
-			launcherSpeed = 110;
-		else if (vexRT[Btn7D] == 1)  // Test Value
-			launcherSpeed = 120;
-		else if (vexRT[Btn7L] == 1)  // Test Value
-			launcherSpeed = 115;
-		else if (vexRT[Btn7R] == 1)  // Test Value
-			launcherSpeed = 105;
+		if (vexRT[Btn7L] == 1)  // Reverse for feeding by hand
+			motor[LiftFeeder] = -70;
 
 		// Keep Launcher Running:
 		motor[LLauncher] = launcherSpeed;
